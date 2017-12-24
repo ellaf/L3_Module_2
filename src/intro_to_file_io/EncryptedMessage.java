@@ -26,13 +26,13 @@ public static void main(String[] args) {
 	//String change1 = text.replaceAll("a", "*");
 	//String change2 = change1.replaceAll("e", "$");
 	String change1 = text.replaceAll("a", morseA);
-	System.out.println(change1);
+	//System.out.println(change1);
 	String change2 = change1.replaceAll("e", morseE);
-	System.out.println(change2);
+	//System.out.println(change2);
 	String change3 = change2.replaceAll("i", morseI);
-	System.out.println(change3);
+	//System.out.println(change3);
 	String change4 = change3.replaceAll("o", morseO);
-	System.out.println(change4);
+	//System.out.println(change4);
 	String change5 = change4.replaceAll("u", morseU);
 	System.out.println(change5);
 	String newText = change5;
