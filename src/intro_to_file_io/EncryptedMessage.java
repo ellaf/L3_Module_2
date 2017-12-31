@@ -10,11 +10,11 @@ import javax.xml.ws.handler.MessageContext;
 public class EncryptedMessage {
 
 File file = new File("encryption.txt");
-static String morseA = " *- ";
-static String morseE = " * ";
-static String morseI = " ** ";
+static String morseA = " #- ";
+static String morseE = " # ";
+static String morseI = " ## ";
 static String morseO = " --- ";
-static String morseU = " **- ";
+static String morseU = " ##- ";
 
 public static void main(String[] args) {
 	
