@@ -2,6 +2,9 @@ package intro_to_file_io;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,24 +59,49 @@ System.out.println(toDoList);
 }
 if(e.getSource() == removeTask) {
 String number = JOptionPane.showInputDialog("Here is your to-do list: \n" + toDoList + "\n" + "Type in the number of the chore as it appears on the list (1,2,3,etc) to remove.");
+int banana = Integer.parseInt(number);
+for (int i = 0; i < toDoList.size(); i++) {
+int orange = i;
+int apple = i+1;
+if(apple == banana) {
+toDoList.remove(orange);
+}
+System.out.println(toDoList);
+}
+
 }
 if(e.getSource() == saveButton) {
-	String newToDoList = toDoList.toString();
 	try {
 	FileWriter fileWriter = new FileWriter("src/todolist.txt");
-	fileWriter.write("Your to-do list: \n \n" + newToDoList);
+	for (int i = 0; i < toDoList.size(); i++) {
+	fileWriter.write(toDoList.get(i) + "\n");
+	}
 	fileWriter.close();
 } catch (IOException e1) {
 	e1.printStackTrace();
 }
-
 }
 if(e.getSource() == loadButton) {
-
+	try {
+		BufferedReader br = new BufferedReader(new FileReader("src/todolist.txt"));
+		
+		String line = br.readLine();
+		while(line != null){
+			toDoList.add(line);
+			System.out.println(line);
+			line = br.readLine();
+			
+		}
+		
+		br.close();
+	} catch (FileNotFoundException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	} catch (IOException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
 }
-
-	
+System.out.println(toDoList);
 }
-	
-
 }
